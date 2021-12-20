@@ -1,0 +1,32 @@
+.header{
+    background-image: url("background.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+
+}
+.heading1{
+    font-size: 40px;
+}
+
+.button{
+    background-color: cyan;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 5%;
+    width: 100px;
+    height: 30px
+}
+.button:hover{
+    background-color:rgb(238, 78, 112);
+}
+
+
