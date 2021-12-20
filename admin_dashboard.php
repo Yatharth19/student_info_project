@@ -158,7 +158,10 @@ td{
 }
 
 #img{
-    background-image: url('college_img.jpg');
+    background-image: url('b.jpg');
+	height:100%;
+	repeat: no-repeat;
+	
 }
 /* #search{
     background-color: purple;
@@ -178,8 +181,19 @@ td{
 }
 #link:hover{
     /* color: red; */
-    background-color: darkblue;
+    background-color: red;
 }
+
+.b {
+			width: 100%;
+			position: fixed;
+            height: 100%;
+			z-index: -1;
+			opacity: 0.6;
+            margin: -10px;
+            margin-right: 10px;
+		}
+
 	</style>
 
 
@@ -190,7 +204,8 @@ td{
 		$db = mysqli_select_db($connection,"dbms project");
 	?>
 </head>
-<body id="img">
+<body>
+	<img src="b.jpg" class="b">
 	<div id="header">
 		<centre><u>Student Management System</u>
 			<br>

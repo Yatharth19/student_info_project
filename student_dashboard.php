@@ -141,6 +141,12 @@
 		.center1{
 			margin-left:100px;
 		}
+		#logout{
+			color: crimson;
+		}
+		a:hover{
+			background-color:purple;
+		}
 	</style>
 
 	<?php
@@ -156,10 +162,10 @@
 		<centre>
 			<u>Student Management System</u> <br>
 		<br>
-		Email:
-			<?php echo $_SESSION['email'];?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name:
+		Roll No:
+			<?php echo $_SESSION['roll_no'];?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name:
 			<?php echo $_SESSION['name'];?>
-			<a href="logout.php">Logout</a>
+			<a href="logout.php" id="logout">Logout</a>
 		</centre>
 	</div>
 	<span id="top_span">
@@ -199,7 +205,7 @@
 			<?php
 					if(isset($_POST['edit_detail']))
 					{
-						$query = "select * from students where email = '$_SESSION[email]'";
+						$query = "select * from students where roll_no = '$_SESSION[roll_no]'";
 						$query_run = mysqli_query($connection,$query);
 						while ($row = mysqli_fetch_assoc($query_run)) 
 						{
@@ -317,7 +323,7 @@
 			<?php
 			if(isset($_POST['show_detail']))
 			{
-				$query = "select * from students where email = '$_SESSION[email]'";
+				$query = "select * from students where roll_no = '$_SESSION[roll_no]'";
 				$query_run = mysqli_query($connection,$query);
 				while ($row = mysqli_fetch_assoc($query_run)) 
 				{
@@ -410,6 +416,7 @@
 		
 		</div>
 	</div>
+		</img>
 </body>
 
 </html>

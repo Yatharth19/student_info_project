@@ -60,7 +60,8 @@
 
 		#s {
 			font-size: 44px;
-			color: orange;
+			color:crimson;
+			
 		}
 
 		.container {

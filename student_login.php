@@ -2,10 +2,47 @@
 <html>
 <head>
 	<title>Student Login</title>
-	<link rel="stylesheet" type="text/css" href="bootstrap-4.4.1/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="bootstrap-4.4.1/css/bootstrap.min.css">
   	<script type="text/javascript" src="bootstrap-4.4.1/js/juqery_latest.js"></script>
   	<script type="text/javascript" src="bootstrap-4.4.1/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="styles.css"> -->
+	<style type="text/css">
+.header{
+    background-image: url("b.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+
+}
+.heading1{
+    font-size: 40px;
+}
+
+.button{
+    background-color: cyan;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 5%;
+    width: 100px;
+    height: 30px
+}
+.button:hover{
+    background-color:rgb(238, 78, 112);
+}
+
+
+
+	</style>
+
+
 </head>
 <body>
 	<center><br><br>
