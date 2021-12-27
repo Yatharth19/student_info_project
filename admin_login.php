@@ -2,10 +2,54 @@
 <html>
 <head>
 	<title>Admin Login</title>
-	<link rel="stylesheet" type="text/css" href="bootstrap-4.4.1/css/bootstrap.min.css">
-  	<script type="text/javascript" src="bootstrap-4.4.1/js/juqery_latest.js"></script>
-  	<script type="text/javascript" src="bootstrap-4.4.1/js/bootstrap.min.js"></script>
-	  <link rel="stylesheet" href="styles.css">
+	<style type="text/css">
+	.header{
+    background-image: url("b.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+
+}
+.heading1{
+    font-size: 40px;
+}
+
+.button{
+    background-color: cyan;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 5%;
+    width: 100px;
+    height: 30px
+}
+.button:hover{
+    background-color:rgb(238, 78, 112);
+}
+#displayed-captcha{
+	display: inline-block;
+	width: 80px;
+	height: 20px;
+	background-color: #FFF8F3;
+	color: rgb(0,0,0,0.7);
+	text-decoration: line-through;
+	padding: 5px;
+	border-radius: 5%;
+}
+
+
+
+</style>
+
+
+
 </head>
 <body>
 	<center><br><br>
@@ -22,11 +66,18 @@
 					<td><strong>Password:</strong></td>
 					<td><input type="password" name="password" placeholder="Password" required></td>
 				</tr>
+				<tr styles="margin-top: 10px">
+					<td><strong>Captcha:</strong></td>
+					<td><p id="displayed-captcha" >Captcha</p></td>
+                </tr>
+			
 			</table>
 			<br>
-			<input type="checkbox" name="checkbox"><label><strong>I'm not a robot<strong></label>
+			<div>
+				<input id="entered-captcha" type="text" name="captcha" placeholder="Enter Captcha" required>
+			</div>
 			<br>
-			<input class="button" type="submit" name="submit" value="LogIn">
+			<input id="login-button" class="button" type="submit" name="submit" value="LogIn">
 		</form><br>
 		</div>
 		
@@ -46,7 +97,7 @@
 						}
 						else{
 							?>
-							<span>Wrong Password !!</span>
+							<span>Wrong Email or Password !!</span>
 							<?php
 						}
 					}
@@ -55,5 +106,6 @@
 			}
 		?>
 	</center>
+	<script src="student_login_js.js"></script>
 </body>
 </html>

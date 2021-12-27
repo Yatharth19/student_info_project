@@ -12,7 +12,6 @@
 	<style>
 		.img {
 			width: 100%;
-			/* position: absolute; */
 			z-index: -1;
 			opacity: 0.5;
 			position:fixed;
@@ -22,7 +21,6 @@
 
 		.left {
 			display: inline-block;
-			/* border: 2px solid red; */
 			position: absolute;
 			left: 60px;
 			top: 50px;
@@ -31,8 +29,9 @@
 
 		.left img {
 			width: 250px;
-			height: 200px;
-			margin-left: -56px;
+			height: 150px;
+			margin-left: -120px;
+			margin-top: -2em;
 		}
 		}
 
@@ -40,6 +39,7 @@
 			line-height: 16px;
 			font-size: 14px;
 			margin-left: -50px;
+			margin-bottom: 3em;
 		}
 
 		.b,
@@ -60,7 +60,8 @@
 
 		#s {
 			font-size: 44px;
-			color: orange;
+			color:crimson;
+			
 		}
 
 		.container {
@@ -81,23 +82,27 @@
 			color: red;
 			font-size: 22px;
 			margin-top: 74px;
-			/* line-height: 0px; */
 			font-weight: bold;
 		}
 		.div{
-			margin-top: -31px;
-    margin-left: -54px;
+			font-weight: bold;
+			font-size: 1.5em;
+    		margin-left: -150px;
 		}
 		#main{
 			margin-top:250px;
 		}
+		.class_cname{
+			margin-bottom: 3em;
+		}
 	</style>
 
 <body>
+
 	<img class="img" src="d.jpg" alt="no img">
 	<div class="left">
-		<img src="logo.jpg" alt="">
-		<div class="div">XYZ College of Engineering </div>
+		<img src="logo.png" alt="">
+		<div class="div">Lucknow Engineering College</div>
 	</div>
 	<div id="main">
 	<center>
@@ -106,15 +111,6 @@
 			<input class="b" type="submit" name="admin_login" value="Admin Login" required>
 			<input class="c" type="submit" name="student_login" value="Student Login" required>
 		</form>
-		<!-- <div class="container">
-			<p>About</p>
-			<ul type="disc">
-				<li>Admissions</li>
-				<li>Results</li>
-				<li>Examination related matters</li>
-				<li>Scholarship</li>
-			</ul>
-		</div> -->
 		<?php
 		if(isset($_POST['admin_login'])){
 			header("Location: admin_login.php");

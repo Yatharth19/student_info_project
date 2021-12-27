@@ -1,7 +1,7 @@
 <?php
 	$connection = mysqli_connect("localhost","root","");
 	$db = mysqli_select_db($connection,"dbms project");
-	$query = "update students set roll_no='$_POST[roll_no]',dept_number='$_POST[dept_number]',name='$_POST[name]',father_name='$_POST[father_name]',class=$_POST[class],mobile='$_POST[mobile]',email='$_POST[email]',password='$_POST[password]',remark='$_POST[remark]' where roll_no = $_POST[roll_no]";
+	$query = "update students set roll_no='$_POST[roll_no]',dept_number='$_POST[dept_number]',name='$_POST[name]',father_name='$_POST[father_name]',year=$_POST[class],mobile='$_POST[mobile]',email='$_POST[email]',password='$_POST[password]',remark='$_POST[remark]' where roll_no = $_POST[roll_no]";
 	$query_run = mysqli_query($connection,$query);
 ?>
 <script type="text/javascript">

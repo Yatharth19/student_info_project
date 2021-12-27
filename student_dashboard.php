@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-<!-- <link rel="stylesheet" type="text/css" href="student_dashboard.css"> -->
 <head>
 	<title>Admin Dashboard</title>
 	<style type="text/css">
@@ -33,18 +32,14 @@
     display: flex;
     position: absolute;
     z-index: -1;
-    /* float: right; */
     flex-shrink: 6;
     margin-right: 20px;
-    /* font-size: small; */
     height: auto;
     width: 60%;
     background-color: rgb(224, 234, 243);
     position: fixed;
     left: 10%;
     top: 21%;
-    /* bottom: 20%; */
-    /* right: 12%; */
     border: solid 1px black;
     color: rgb(42, 112, 216);
 }
@@ -52,7 +47,6 @@
 		#top_span {
 			top: 13%;
 			width: 100%;
-			/* left: 17%; * */
 			display: flex;
 			position: absolute;
 			font-weight: 700;
@@ -77,19 +71,15 @@
 		}
 
 		.save:hover {
-			/* color:red; */
 			background-color: red;
 		}
 
 		.bt,
 		.ct {
 			cursor: pointer;
-			/* float: left; */
-			/* margin-top: -30px; */
 			padding: 16px;
 			border-radius: 12px;
 			font-weight: 600;
-			/* padding-inline: 18px; */
 			margin-inline: 106px;
 			height: 32px;
 			padding-top: 2px;
@@ -113,8 +103,6 @@
 		}
 
 		.c {
-			/* margin-left: -150px; */
-			/* display: fixed; */
 			box-sizing: border-box;
 			width: 100%;
 			position: absolute;
@@ -131,7 +119,6 @@
 			opacity: 0.9;
 		}
 		.demo{
-			/* background-color:yellow; */
 			margin-left: 100px;
 			margin-top: -50px;
 		}
@@ -140,6 +127,12 @@
 		}
 		.center1{
 			margin-left:100px;
+		}
+		#logout{
+			color: crimson;
+		}
+		a:hover{
+			background-color:purple;
 		}
 	</style>
 
@@ -156,14 +149,13 @@
 		<centre>
 			<u>Student Management System</u> <br>
 		<br>
-		Email:
-			<?php echo $_SESSION['email'];?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name:
+		Roll No:
+			<?php echo $_SESSION['roll_no'];?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name:
 			<?php echo $_SESSION['name'];?>
-			<a href="logout.php">Logout</a>
+			<a href="logout.php" id="logout">Logout</a>
 		</centre>
 	</div>
 	<span id="top_span">
-		<!-- <marquee>Note:- This portal is open till 15 December 2021...Plz edit your information, if wrong.</marquee> -->
 	</span>
 
 	<div id="left_side">
@@ -186,8 +178,6 @@
 				<td>
 					<input type="submit" class="ct" name="edit_detail" value="Edit Detail">
 				</td>
-			<!-- </tr>
-			<tr> -->
 				<td>
 					<input type="submit" class="ct" name="show_detail" value="Show Detail">
 				</td>
@@ -199,19 +189,11 @@
 			<?php
 					if(isset($_POST['edit_detail']))
 					{
-						$query = "select * from students where email = '$_SESSION[email]'";
+						$query = "select * from students where roll_no = '$_SESSION[roll_no]'";
 						$query_run = mysqli_query($connection,$query);
 						while ($row = mysqli_fetch_assoc($query_run)) 
 						{
 							?>
-			<!-- <form action="" method="post" class="form"> -->
-
-				<!-- <div class="container">
-					<input class="bt" type="button" value="Show Details">
-					<input class="ct" type="button" value="Edit Details">
-				</div> -->
-			<!-- </form> -->
-
 
 
 			<form action="edit_student.php" method="post" class="f">
@@ -222,7 +204,8 @@
 							<b>Roll No:</b>
 						</td>
 						<td>
-							<input type="text" name="roll_no" class="tb" value="<?php echo $row['roll_no']?>" disabled>
+							
+							<input type="text" name="roll_no" class="tb" value="<?php echo $row['roll_no']?>" readonly>
 						</td>
 					</tr>
 					
@@ -231,7 +214,7 @@
 							<b>Department No:</b>
 						</td>
 						<td>
-							<input type="text" name="dept_number" class="tb" value="<?php echo $row['roll_no']?>" disabled>
+							<input type="text" name="dept_number" class="tb" value="<?php echo $row['dept_number']?>" readonly>
 						</td>
 					</tr>
 
@@ -240,7 +223,7 @@
 							<b>Name:</b>
 						</td>
 						<td>
-							<input type="text" name="name" class="tb" value="<?php echo $row['name']?>" disabled>
+							<input type="text" name="name" class="tb" value="<?php echo $row['name']?>" readonly>
 						</td>
 					</tr>
 					<tr>
@@ -248,23 +231,15 @@
 							<b>Father's Name:</b>
 						</td>
 						<td>
-							<input type="text" name="father_name" class="tb" value="<?php echo $row['father_name']?>" disabled>
+							<input type="text" name="father_name" class="tb" value="<?php echo $row['father_name']?>" readonly>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<b>Class:</b>
+							<b>Year:</b>
 						</td>
 						<td>
-							<input type="text" name="class" class="tb" value="<?php echo $row['class']?>" disabled>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<b>Mobile:</b>
-						</td>
-						<td>
-							<input type="text" name="mobile" class="tb" value="<?php echo $row['mobile']?>">
+							<input type="text" name="class" class="tb" value="<?php echo $row['Year']?>" readonly>
 						</td>
 					</tr>
 					<tr>
@@ -273,6 +248,14 @@
 						</td>
 						<td>
 							<input type="text" name="email" class="tb" value="<?php echo $row['email']?>">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<b>Mobile:</b>
+						</td>
+						<td>
+							<input type="text" name="mobile" class="tb" value="<?php echo $row['mobile']?>">
 						</td>
 					</tr>
 					<tr>
@@ -288,7 +271,7 @@
 							<b>Remark:</b>
 						</td>
 						<td>
-							<textarea rows="3" cols="5" name="remark" class="tb"><?php echo $row['remark']?></textarea>
+							<textarea rows="3" cols="5" name="remark" class="tb" readonly><?php echo $row['remark']?></textarea>
 						</td>
 						</tr>
 						<tr>
@@ -306,18 +289,10 @@
 			?>
 
 
-
-
-
-
-
-
-
-
 			<?php
 			if(isset($_POST['show_detail']))
 			{
-				$query = "select * from students where email = '$_SESSION[email]'";
+				$query = "select * from students where roll_no = '$_SESSION[roll_no]'";
 				$query_run = mysqli_query($connection,$query);
 				while ($row = mysqli_fetch_assoc($query_run)) 
 				{
@@ -361,10 +336,10 @@
 					</tr>
 					<tr>
 						<td>
-							<b>Class:</b>
+							<b>Year:</b>
 						</td> 
 						<td>
-							<input type="text" value="<?php echo $row['class']?>" disabled>
+							<input type="text" value="<?php echo $row['Year']?>" disabled>
 						</td>
 					</tr>
 					<tr>
@@ -405,11 +380,9 @@
 				}	
 			}
 			?>
-
-
-		
 		</div>
 	</div>
+		</img>
 </body>
 
 </html>

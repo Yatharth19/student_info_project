@@ -2,10 +2,6 @@
 <html>
 <head>
 	<title>Admin Dashboard</title>
-	<!-- <link rel="stylesheet" type="text/css" href="admin_dashboard.css"> -->
-	<!-- echo "<link rel="stylesheet" type="text/css" href="admin_dashboard.css" />" -->
-  	<!-- script type="text/javascript" src="bootstrap-4.4.1/js/juqery_latest.js"></script>
-  	<script type="text/javascript" src="bootstrap-4.4.1/js/bootstrap.min.js"></script -->
 	
 	<style type="text/css">
 
@@ -30,18 +26,13 @@ input[type="submit"] {
     cursor: pointer;
     float: left;
     margin-top: -30px;
-    /* padding: 16px; */
     border-radius: 12px;
     font-weight: 600;
-    /* padding-inline: 18px;
-    margin-inline: 106px; */
-    height: 32px;
+	height: 32px;
     padding-top: 1px;
     background-color: rgb(183, 200, 226);
 }
 .save {
-    /* width: 32%; */
-    /* margin-left: 145px; */
     cursor: pointer;
     background-color: lightgreen;
     border-radius: 15px;
@@ -54,7 +45,14 @@ input[type="submit"] {
     background-color: rgb(42, 112, 216);
 }
 
+.add{
 
+    border-radius: 12px;
+}
+.add:hover{
+	background-color: rgb(42, 112, 216);
+
+}
 
 #right_side {
     z-index: 1;
@@ -63,23 +61,18 @@ input[type="submit"] {
     display: flex;
     position: absolute;
     z-index: -1;
-    /* float: right; */
     flex-shrink: 6;
     margin-right: 20px;
-    /* font-size: small; */
     height: auto;
     width: 60%;
     background-color: rgb(224, 234, 243);
     position: fixed;
     left: 10%;
     top: 21%;
-    /* bottom: 20%; */
-    /* right: 12%; */
     border: solid 1px black;
     color: rgb(42, 112, 216);
 }
 .c {
-    /* margin-left: -150px; */
     box-sizing: border-box;
     width: 100%;
     position: absolute;
@@ -110,21 +103,7 @@ input[type="submit"] {
     top: 10%;
     position: fxed;
 }
-/* #right_side{
-    backdrop-filter: blur(10px);
-    height: 75%;
-    width: 80%;
-    position: fixed;
-    left: 10%;
-    top: 21%;
-    color: black;
-    border: solid 1px black;
-}i */
 #top_side{
-    /* height: 25%; */
-    /* width: 15%; */
-    /* top: 10%; */
-    /* position: relative; */
     column-gap: 100px;
     
 }
@@ -136,17 +115,15 @@ input[type="submit"] {
     position: fixed;
 }
 td{
-    /* border: 1px solid black; */
-    /* margin-left: 20px;
-    padding-left: 2px; */
     padding: 100 150px;
     color: black;
     text-align: left;
     width: 200px;
 }
-#td1{
+.td1{
     color: black;
-    /* background-color: blue; */
+	text-align:center;
+ 
 }
 #input1{
     background-color: rgb(88, 98, 236);
@@ -158,28 +135,37 @@ td{
 }
 
 #img{
-    background-image: url('college_img.jpg');
+    background-image: url('b.jpg');
+	height:100%;
+	repeat: no-repeat;
+	
 }
-/* #search{
-    background-color: purple;
-} */
 #search:hover{
     background-color: greenyellow;
 }
 #delete:hover{
     background-color: red;
 }
-/* 
-#h11{
-    color: black;
-} */
 #link{
     color: cyan;
 }
 #link:hover{
-    /* color: red; */
-    background-color: darkblue;
+    background-color: red;
 }
+
+.b {
+			width: 100%;
+			position: fixed;
+            height: 100%;
+			z-index: -1;
+			opacity: 0.6;
+            margin: -10px;
+            margin-right: 10px;
+		}
+
+		body{
+			overflow: scroll;
+		}
 	</style>
 
 
@@ -190,7 +176,8 @@ td{
 		$db = mysqli_select_db($connection,"dbms project");
 	?>
 </head>
-<body id="img">
+<body>
+	<img src="b.jpg" class="b">
 	<div id="header">
 		<centre><u>Student Management System</u>
 			<br>
@@ -205,32 +192,29 @@ td{
 			<img src="c.jpg" class="c" alt="no image">
 	
 		<div id="top_side">
-		<!-- <br><br><br> -->
 		<form action="" method="post">
 			<table>
 				<tr>
 					<td>
 						<input class="ct" type="submit" name="search_student" value="Search Student" onclick="">
 					</td>
-				<!-- </tr>
-				<tr> -->
 					<td>
 						<input class="ct" type="submit" name="edit_student" value="Edit Student">
 					</td>
-				<!-- </tr>
-				<tr> -->
 					<td>
 						<input class="ct" type="submit" name="add_new_student" value="Add New Student">
 					</td>
-				<!-- </tr>
-				<tr> -->
 					<td>
 						<input class="ct" type="submit" name="delete_student" value="Delete Student">
 					</td>
-				<!-- </tr>
-				<tr> -->
 					<td>
 						<input class="ct" type="submit" name="show teacher" value="Show Teachers">
+					</td>
+					<td>
+						<input class="ct" type="submit" name="show courses" value="Show Courses">
+					</td>
+					<td>
+						<input class="ct" type="submit" name="show department" value="Show Departments">
 					</td>
 				</tr>
 			</table>
@@ -251,8 +235,8 @@ td{
 					&nbsp;&nbsp;<b>Enter Roll No:</b>&nbsp;&nbsp; <input type="text" name="roll_no">
 					<input type="submit" id="search" name="search_by_roll_no_for_search" value="Search" class="save">
 					</form><br><br>
-					<!-- <h4><b><u>Student's details</u></b></h4><br><br> -->
 					</center>
+					
 					<?php
 				}
 				if(isset($_POST['search_by_roll_no_for_search']))
@@ -300,10 +284,10 @@ td{
 							</tr>
 							<tr>
 								<td>
-									<b>Class:</b>
+									<b>Year:</b>
 								</td> 
 								<td>
-									<input type="text" value="<?php echo $row['class']?>" disabled>
+									<input type="text" value="<?php echo $row['Year']?>" disabled>
 								</td>
 							</tr>
 							<tr>
@@ -352,15 +336,12 @@ td{
 				<form action="" method="post">
 				&nbsp;&nbsp;<b>Enter Roll No:</b>&nbsp;&nbsp; <input type="text" name="roll_no">
 				<input type="submit"  id="search" name="search_by_roll_no_for_edit" value="Search" class="save">
-				<!-- <h4><b><u>Student's details</u></b></h4><br><br>
-				 -->
 				</form><br><br>
 				</center>
 				<?php
 			}
 			if(isset($_POST['search_by_roll_no_for_edit']))
 			{
-				// <!-- // <h4><b><u>Student details</u></b></h4><br><br> -->
 				
 				$query = "select * from students where roll_no = $_POST[roll_no]";
 				$query_run = mysqli_query($connection,$query);
@@ -405,10 +386,10 @@ td{
 						</tr>
 						<tr>
 							<td>
-								<b>Class:</b>
+								<b>Year:</b>
 							</td> 
 							<td>
-								<input type="text" name="class" value="<?php echo $row['class']?>">
+								<input type="text" name="class" value="<?php echo $row['Year']?>">
 							</td>
 						</tr>
 						<tr>
@@ -446,7 +427,7 @@ td{
 						<tr>
 							<td></td>
 							<td>
-								<input type="submit" name="edit" value="Save">
+								<input type="submit" name="edit" value="Save" >
 							</td>
 						</tr>
 					</table>
@@ -512,7 +493,7 @@ td{
 						</tr>
 						<tr>
 							<td>
-								<b>Class:</b>
+								<b>Year:</b>
 							</td> 
 							<td>
 								<input type="text" name="class" required>
@@ -552,7 +533,7 @@ td{
 						</tr>
 						<tr>
 							<td></td>
-							<td><br><input type="submit" name="add" value="Add Student"></td>
+							<td><br><input type="submit" name="add" value="Add Student" class="add"></td>
 						</tr>
 					</table>
 					</form>
@@ -568,11 +549,12 @@ td{
 						<h1>Teacher's Details</h1>
 						<table>
 							<tr>
-								<td id="td1"><b>ID</b></td>
-								<td id="td1"><b>Name</b></td>
-								<td id="td1"><b>Mobile</b></td>
-								<td id="td1"><b>Courses</b></td>
-								<td id="td1"><b>View Detail</b></td>
+								<td class="td1"><b>ID</b></td>
+								<td class="td1"><b>Department No</b></td>
+								<td class="td1"><b>Name</b></td>
+								<td class="td1"><b>Mobile</b></td>
+								<td class="td1"><b>Course Id 1</b></td>
+								<td class="td1"><b>Course Id 2</b></td>
 							</tr>
 						</table>
 					</center>
@@ -585,12 +567,12 @@ td{
 						<center>
 						<table style="border-collapse: collapse;border: 1px solid black;">
 							<tr>
-								<td id="td1"><?php echo $row['t_id']?></td>
-								<td id="td1"><?php echo $row['dept_number']?></td>
-								<td id="td1"><?php echo $row['name']?></td>
-								<td id="td1"><?php echo $row['mobile']?></td>
-								<td id="td1"><?php echo $row['courses']?></td>
-								<td id="td1"><a href="#">View</a></td>
+								<td class="td1"><?php echo $row['t_id']?></td>
+								<td class="td1"><?php echo $row['dept_number']?></td>
+								<td class="td1"><?php echo $row['name']?></td>
+								<td class="td1"><?php echo $row['mobile']?></td>
+								<td class="td1"><?php echo $row['c_id1']?></td>
+								<td class="td1"><?php echo $row['c_id2']?></td>
 							</tr>
 						</table>
 						</center>
@@ -598,6 +580,81 @@ td{
 					}
 				}
 			?>
+
+			<!-- <code for course details> -->
+			<?php
+				if(isset($_POST['show_courses']))
+				{
+					?>
+					<center>
+						<h1>Course Details</h1>
+						<table>
+							<tr>
+								<td class="td1"><b>Course ID</b></td>
+								<td class="td1"><b>Department Number</b></td>
+								<td class="td1"><b>Course Name</b></td>
+								
+							</tr>
+						</table>
+					</center>
+					<?php
+					$query = "select * from course";
+					$query_run = mysqli_query($connection,$query);
+					while ($row = mysqli_fetch_assoc($query_run)) 
+					{
+						?>
+						<center>
+						<table style="border-collapse: collapse;border: 1px solid black;">
+							<tr>
+								<td class="td1"><?php echo $row['c_id']?></td>
+								<td class="td1"><?php echo $row['dept_number']?></td>
+								<td class="td1"><?php echo $row['c_name']?></td>
+								
+							</tr>
+						</table>
+						</center>
+						<?php
+					}
+				}
+			?>
+
+				<!-- <code for Department details> -->
+			<?php
+				if(isset($_POST['show_department']))
+				{
+					?>
+					<center>
+						<h1>Department Details</h1>
+						<table>
+							<tr>
+								
+								<td class="td1"><b>Department No</b></td>
+								<td class="td1"><b>Department Name</b></td>
+								
+							</tr>
+						</table>
+					</center>
+					<?php
+					$query = "select * from department";
+					$query_run = mysqli_query($connection,$query);
+					while ($row = mysqli_fetch_assoc($query_run)) 
+					{
+						?>
+						<center>
+						<table style="border-collapse: collapse;border: 1px solid black;">
+							<tr>
+								<td class="td1"><?php echo $row['dept_number']?></td>
+								<td class="td1"><?php echo $row['dept_name']?></td>
+								
+							</tr>
+						</table>
+						</center>
+						<?php
+					}
+				}
+			?>
+
+
 		</div>
 	</div>
 </body>
